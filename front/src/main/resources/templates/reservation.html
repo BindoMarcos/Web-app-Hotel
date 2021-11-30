@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+</head>
+
+<body>
+    <div>
+        <!-- <form action="#" th:action="@{/reservation/add}" th:object="${Reservation}" method="post">
+            <p>DNI: <br><input type="number" th:field="*{customer}"></p>
+            <p>Room Number: <br><input type="number" , th:field="*{room}"></p>
+            <p>Arrive Date: <br> <input type="date" th:field="*{check_in}"> </p>
+            <p>Departure Date: <br><input type="date" th:field="¨*{check_out}"></p>
+        </form> -->
+    </div> 
+    <hr>
+    <h2>Avalible Rooms</h2>
+
+    <div th:each="Reservation: ${Rooms}">
+        <span th:text="' Room Number: ' +${Rooms.n_room}" />
+        <span th:text="' Beds Quantity: ' +${Rooms.q_beds}" />
+    </div>
+</body>
+
+</html>

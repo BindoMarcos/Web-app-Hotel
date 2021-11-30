@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an user</title>
+</head>
+
+<body>
+    <div>
+        <form action="#" th:action="@{/customer/add}" th:object="${Customer}" method="post">
+            <p>DNI: <br> <input type="number" th:field="*{dni}"></p>
+            <p>Username: <br><input type="text" th:field="*{username}"></p>
+            <p>Password: <br><input type="password" th:field="*{pass}"></p>
+            <p><input type="submit" value="Next"></p>
+        </form>
+    </div>
+
+    <hr>
+    <h2>Active Customers</h2>
+    <div th:each="Customer: ${Customers}">
+        <span th:text="'DNI:'+ ${Customer.dni}" />
+        <span th:text="' Username:' +${Customer.username}" />
+    </div>
+</body>
+
+</html>
