@@ -1,5 +1,6 @@
 package com.hotel.api.services;
 
+import com.hotel.api.models.ReservOutput;
 import com.hotel.api.models.Reservation;
 import com.hotel.api.repositories.Reservation.ReservationRepo;
 
@@ -17,7 +18,7 @@ public class ReservationService {
     @Autowired
     CustomerService customerService;
 
-    public Reservation save(Reservation reservation) {
+    public ReservOutput save(Reservation reservation) {
         int dni = reservation.getCustomer().getDni();
         int nRoom = reservation.getRoom().getN_room();
         if (customerService.exist(dni)) {
@@ -25,7 +26,8 @@ public class ReservationService {
             if (roomService.exist(nRoom)) {
                 System.out.println(nRoom);
                 if (rRepo.rangeDate(reservation.getCheck_out(), reservation.getCheck_in(), nRoom)) {
-                    return rRepo.save(reservation);
+                    Reservation r = rRepo.save(reservation);
+                    return new ReservOutput(r.getId_reservation(), r.getCustomer().getDni(), r.getRoom().getN_room(), r.getCheck_in(), r.getCheck_out());
                 } else {
                     System.out.println("no entro la reserva");
                 }

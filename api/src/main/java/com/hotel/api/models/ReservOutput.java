@@ -1,4 +1,4 @@
-package com.hotelmvc.front.models;
+package com.hotel.api.models;
 
 import java.sql.Date;
 
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reservation {
+
+public class ReservOutput {
     private Long id_reservation;
-    private Customer customer;
-    private Room room;
+    private int customer;
+    private int room;
     private Date check_in;
     private Date check_out;
 }
-

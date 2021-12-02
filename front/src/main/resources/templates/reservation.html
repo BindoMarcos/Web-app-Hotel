@@ -9,17 +9,17 @@
 
 <body>
     <div>
-        <!-- <form action="#" th:action="@{/reservation/add}" th:object="${Reservation}" method="post">
+        <form action="#" th:action="@{/reservation/add}" th:object="${Reservation}" method="post">
             <p>DNI: <br><input type="number" th:field="*{customer}"></p>
             <p>Room Number: <br><input type="number" , th:field="*{room}"></p>
             <p>Arrive Date: <br> <input type="date" th:field="*{check_in}"> </p>
-            <p>Departure Date: <br><input type="date" th:field="¨*{check_out}"></p>
-        </form> -->
-    </div> 
-    <hr>
-    <h2>Avalible Rooms</h2>
+            <p>Departure Date: <br><input type="date" th:field="*{check_out}"></p>
+            <p><input type="submit" value="submit">
+        </form>
+    </div>
 
-    <div th:each="Reservation: ${Rooms}">
+    <h2>Avalible Rooms</h2>
+    <div th:each="Rooms: ${Rooms}">
         <span th:text="' Room Number: ' +${Rooms.n_room}" />
         <span th:text="' Beds Quantity: ' +${Rooms.q_beds}" />
     </div>

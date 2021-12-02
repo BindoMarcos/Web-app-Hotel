@@ -33,7 +33,6 @@ public class Reservation {
 
     @ManyToOne()
     @JoinColumn(name = "rooms", referencedColumnName = "n_room", nullable = false)
-    //@OneToMany(mappedBy = "reservations",cascade = CascadeType.ALL, orphanRemoval = false)
     private Room room;
 
     @Column(name = "check_in", nullable = false)
@@ -46,11 +45,10 @@ public class Reservation {
     }
 
     public void setCheck_in(String check_in){
-        System.out.println(check_in);
         Date date = Date.valueOf(check_in);
         this.check_in = date;
     }
-
+    
     public void setCheck_out(String check_out){
         Date date = Date.valueOf(check_out);
         this.check_out = date;

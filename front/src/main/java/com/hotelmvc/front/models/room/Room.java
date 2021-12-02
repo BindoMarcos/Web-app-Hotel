@@ -1,4 +1,4 @@
-package com.hotelmvc.front.models;
+package com.hotelmvc.front.models.room;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,5 +12,5 @@ public class Room {
     private int n_room;
     private int q_beds;
     private boolean busy = true;
-    
+
 }

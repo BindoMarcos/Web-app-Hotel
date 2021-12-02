@@ -1,5 +1,6 @@
 package com.hotel.api.controllers;
 
+import com.hotel.api.models.ReservOutput;
 import com.hotel.api.models.Reservation;
 import com.hotel.api.services.ReservationService;
 
@@ -19,7 +20,7 @@ public class ReservationController {
     ReservationService rService;
 
     @PostMapping("/add")
-    public Reservation addReservation(@RequestBody Reservation reservation) {
+    public ReservOutput addReservation(@RequestBody Reservation reservation) {
         return rService.save(reservation);
     }
 
@@ -35,7 +36,6 @@ public class ReservationController {
 
     @DeleteMapping("/deleteone")
     public void delOne(@RequestParam Long idReservation, @RequestParam int dni) {
-        System.out.println("+++++++++++++++++++++");
         System.out.println(idReservation + " " + dni);
         rService.delOne(idReservation, dni);
     }
