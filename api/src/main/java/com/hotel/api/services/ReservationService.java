@@ -27,7 +27,8 @@ public class ReservationService {
                 System.out.println(nRoom);
                 if (rRepo.rangeDate(reservation.getCheck_out(), reservation.getCheck_in(), nRoom)) {
                     Reservation r = rRepo.save(reservation);
-                    return new ReservOutput(r.getId_reservation(), r.getCustomer().getDni(), r.getRoom().getN_room(), r.getCheck_in(), r.getCheck_out());
+                    return new ReservOutput(r.getId_reservation(), r.getCustomer().getDni(), r.getRoom().getN_room(),
+                            r.getCheck_in(), r.getCheck_out());
                 } else {
                     System.out.println("no entro la reserva");
                 }
